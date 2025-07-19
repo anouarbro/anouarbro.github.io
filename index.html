@@ -836,10 +836,10 @@
                 const fullCommand = commands[currentCommand];
                 
                 if (isDeleting) {
-                    commandLine.textContent = '> ' + fullCommand.substring(0, charIndex - 1);
+                    commandLine.textContent = fullCommand.substring(0, charIndex - 1);
                     charIndex--;
                 } else {
-                    commandLine.textContent = '> ' + fullCommand.substring(0, charIndex + 1);
+                    commandLine.textContent = fullCommand.substring(0, charIndex + 1);
                     charIndex++;
                 }
                 
