@@ -1,918 +1,1828 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anouar Brimou | Cybersecurity Engineer</title>
-    <link rel="icon" href="./pfp.png" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#00ff9d',
-                        secondary: '#00b4ff',
-                        dark: '#0a0a0a',
-                        darker: '#050505',
-                        light: '#f0f0f0',
-                    },
-                    fontFamily: {
-                        'mono': ['"Fira Code"', 'monospace'],
-                        'sans': ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            background-color: #050505;
-            color: #f0f0f0;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .terminal {
-            background-color: rgba(10, 10, 10, 0.8);
-            border: 1px solid rgba(0, 255, 157, 0.2);
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
-        }
-        
-        .terminal-header {
-            background-color: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
-        }
-        
-        .terminal-body {
-            font-family: 'Fira Code', monospace;
-        }
-        
-        .command-line::before {
-            content: '> ';
-            color: #00ff9d;
-        }
-        
-        .glow-text {
-            text-shadow: 0 0 8px rgba(0, 255, 157, 0.7);
-        }
-        
-        .glow-box {
-            box-shadow: 0 0 15px rgba(0, 180, 255, 0.5);
-        }
-        
-        .hexagon {
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #00ff9d, #00b4ff);
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -26px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #00ff9d;
-            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.3);
-        }
-        
-        .hacker-text {
-            font-family: 'Fira Code', monospace;
-            background: linear-gradient(90deg, #00ff9d, #00b4ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #00ff9d;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .project-card {
-            transition: all 0.3s ease;
-            background: linear-gradient(145deg, #0a0a0a, #111111);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 255, 157, 0.2);
-        }
-        
-        .contact-input {
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid rgba(0, 255, 157, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-input:focus {
-            border-color: #00ff9d;
-            box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
-        }
-        
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-3px);
-            filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.7));
-        }
-        
-        @media (max-width: 768px) {
-            .terminal {
-                width: 95%;
-            }
-            
-            .timeline-item::before {
-                left: -15px;
-            }
-            
-            .timeline-dot {
-                left: -20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Anouar Brimou — Security Engineer. FortiGate · FortiManager · SD-WAN · Palo Alto Networks · IPsec VPN. Enterprise firewall and infrastructure security."/>
+  <meta name="keywords" content="FortiGate,FortiManager,SD-WAN,Palo Alto,IPsec VPN,Security Engineer,Firewall Engineer,Cybersecurity Engineer,Morocco,Casablanca"/>
+  <meta property="og:title" content="Anouar Brimou | Security Engineer"/>
+  <meta property="og:description" content="FortiGate · FortiManager · SD-WAN · Palo Alto Networks. Cybersecurity engineer based in Morocco."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://anouarbro.github.io"/>
+  <link rel="icon" href="./pfp.png" type="image/png"/>
+  <title>Anouar Brimou | Security Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+  /* ═══════════════════════════════════════
+     TOKENS
+  ═══════════════════════════════════════ */
+  :root{
+    --bg:        #080C12;
+    --bg2:       #0D1520;
+    --bg3:       #111C2D;
+    --bg4:       #162236;
+    --g:         #00C896;   /* accent green  */
+    --g2:        #00A87D;   /* darker green  */
+    --b:         #3B9EFF;   /* accent blue   */
+    --b2:        #1A72CC;
+    --text:      #E2E8F0;
+    --muted:     #7A90A8;
+    --border:    rgba(255,255,255,0.07);
+    --border2:   rgba(0,200,150,0.2);
+    --glow:      rgba(0,200,150,0.15);
+    --glow-b:    rgba(59,158,255,0.12);
+    --ff-disp:   'Space Grotesk',system-ui,sans-serif;
+    --ff-mono:   'JetBrains Mono','Fira Code',monospace;
+    --r:         10px;
+    --r2:        16px;
+    --ease:      cubic-bezier(.25,.46,.45,.94);
+    --max:       1160px;
+  }
+
+  /* ═══════════════════════════════════════
+     RESET
+  ═══════════════════════════════════════ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;font-size:16px}
+  body{font-family:var(--ff-disp);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+  a{text-decoration:none;color:inherit}
+  ul{list-style:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer}
+  @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  /* ═══════════════════════════════════════
+     SCROLLBAR
+  ═══════════════════════════════════════ */
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--g2)}
+
+  /* ═══════════════════════════════════════
+     TYPOGRAPHY UTILITIES
+  ═══════════════════════════════════════ */
+  .mono{font-family:var(--ff-mono)}
+  .g-text{
+    background:linear-gradient(120deg,var(--g) 0%,var(--b) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent
+  }
+  .section-eyebrow{
+    font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--g);
+    display:flex;align-items:center;gap:10px;margin-bottom:10px
+  }
+  .section-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--g)}
+  .section-h{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.03em;margin-bottom:12px}
+  .section-sub{font-size:.975rem;color:var(--muted);line-height:1.8;max-width:540px;margin-bottom:52px}
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+  ═══════════════════════════════════════ */
+  .inner{max-width:var(--max);margin:0 auto;width:100%;padding:0 clamp(18px,5vw,60px)}
+  section{padding:88px 0}
+
+  /* ═══════════════════════════════════════
+     NAV
+  ═══════════════════════════════════════ */
+  #nav{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    height:60px;
+    display:flex;align-items:center;
+    background:rgba(8,12,18,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    transition:background .3s
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;max-width:var(--max);margin:0 auto;
+    padding:0 clamp(18px,5vw,60px)
+  }
+  .nav-logo{
+    font-family:var(--ff-mono);font-size:1rem;font-weight:600;
+    color:var(--g);letter-spacing:.04em
+  }
+  .nav-logo em{color:var(--text);font-style:normal}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{
+    font-size:.84rem;font-weight:500;color:var(--muted);
+    transition:color .2s;position:relative;padding-bottom:2px
+  }
+  .nav-links a::after{
+    content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+    background:var(--g);transition:width .25s var(--ease)
+  }
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:hover::after{width:100%}
+  .nav-hire{
+    font-size:.8rem;font-weight:600;padding:7px 18px;border-radius:7px;
+    background:var(--g);color:#080C12;
+    transition:background .2s,transform .2s;border:none;display:inline-block
+  }
+  .nav-hire:hover{background:#00DFA8;transform:translateY(-1px);color:#080C12}
+  .nav-hire::after{display:none!important}
+
+  /* ── Language switcher ── */
+  .lang-switcher{display:flex;align-items:center;gap:6px;margin-left:4px}
+  .lang-btn{
+    display:flex;align-items:center;gap:5px;
+    padding:5px 10px;border-radius:6px;border:1px solid var(--border);
+    background:transparent;color:var(--muted);cursor:pointer;
+    font-family:var(--ff-mono);font-size:.7rem;font-weight:600;letter-spacing:.04em;
+    transition:all .2s;line-height:1
+  }
+  .lang-btn:hover{border-color:var(--border2);color:var(--text)}
+  .lang-btn.active{background:rgba(0,200,150,.1);border-color:var(--border2);color:var(--g)}
+  .lang-flag{font-size:.85rem;line-height:1}
+
+  /* hamburger */
+  .nav-burger{display:none;flex-direction:column;gap:5px;padding:4px;border:none;background:none}
+  .nav-burger span{display:block;width:21px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-burger.open span:nth-child(2){opacity:0}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  .nav-mobile{
+    display:none;position:absolute;top:60px;left:0;right:0;
+    background:rgba(8,12,18,.98);border-bottom:1px solid var(--border);
+    padding:12px 0
+  }
+  .nav-mobile.open{display:block}
+  .nav-mobile a{
+    display:block;padding:12px 28px;font-size:.9rem;color:var(--muted);
+    border-bottom:1px solid var(--border);transition:color .2s,background .2s
+  }
+  .nav-mobile a:hover{color:var(--g);background:rgba(0,200,150,.04)}
+
+  @media(max-width:820px){
+    .nav-links{display:none}
+    .nav-burger{display:flex}
+  }
+
+  /* ═══════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════ */
+  #hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding-top:60px;
+    position:relative;overflow:hidden;
+    background:var(--bg)
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1fr 480px;
+    gap:60px;align-items:center
+  }
+
+  /* left */
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.12em;
+    color:var(--g);text-transform:uppercase;
+    padding:5px 12px 5px 10px;
+    border:1px solid var(--border2);
+    border-radius:6px;background:rgba(0,200,150,.05);
+    margin-bottom:20px
+  }
+  .hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--g);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+
+  .hero-name{
+    font-size:clamp(2.8rem,7vw,5rem);
+    font-weight:700;letter-spacing:-.04em;line-height:1.05;
+    margin-bottom:10px
+  }
+  .hero-title{
+    font-size:clamp(1rem,2.5vw,1.35rem);
+    font-weight:400;color:var(--b);
+    margin-bottom:22px;letter-spacing:-.01em
+  }
+  .hero-desc{
+    font-size:.975rem;color:var(--muted);line-height:1.82;
+    max-width:500px;margin-bottom:32px
+  }
+  .hero-desc strong{color:var(--text);font-weight:600}
+
+  .hero-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px}
+  .chip{
+    font-family:var(--ff-mono);font-size:.67rem;letter-spacing:.04em;
+    padding:4px 11px;border-radius:5px;
+    background:rgba(59,158,255,.08);color:var(--b);
+    border:1px solid rgba(59,158,255,.2);
+    white-space:nowrap
+  }
+  .chip.g{background:rgba(0,200,150,.07);color:var(--g);border-color:rgba(0,200,150,.2)}
+
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;
+    padding:11px 22px;border-radius:var(--r);font-size:.875rem;font-weight:600;
+    transition:all .2s var(--ease);border:none
+  }
+  .btn-g{background:var(--g);color:#080C12}
+  .btn-g:hover{background:#00DFA8;transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,200,150,.3)}
+  .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+  .btn-ghost:hover{border-color:var(--g);color:var(--g);transform:translateY(-1px)}
+
+  /* right — network canvas panel */
+  .hero-panel{
+    border:1px solid var(--border);border-radius:var(--r2);
+    background:var(--bg2);overflow:hidden;position:relative
+  }
+  .hero-panel-header{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 16px;border-bottom:1px solid var(--border);
+    background:rgba(0,0,0,.2)
+  }
+  .dot-r{width:10px;height:10px;border-radius:50%;background:#FF5F57}
+  .dot-y{width:10px;height:10px;border-radius:50%;background:#FFBD2E}
+  .dot-g{width:10px;height:10px;border-radius:50%;background:#27C93F}
+  .panel-title{
+    font-family:var(--ff-mono);font-size:.72rem;color:var(--muted);
+    margin-left:6px;letter-spacing:.06em
+  }
+  /* ── Game preview card ── */
+  .game-preview{
+    padding:28px 24px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:16px;
+    min-height:200px;
+    background:radial-gradient(ellipse at 60% 40%,rgba(0,200,150,.07) 0%,transparent 70%)
+  }
+  .game-preview-art{
+    font-family:var(--ff-mono);font-size:.55rem;line-height:1.25;
+    color:var(--g);letter-spacing:.08em;opacity:.85;text-align:center
+  }
+  .game-preview-title{font-family:var(--ff-mono);font-size:.8rem;font-weight:700;color:var(--g);letter-spacing:.14em}
+  .game-preview-sub{font-size:.72rem;color:var(--muted);text-align:center;max-width:200px;line-height:1.6}
+  #openGameBtn{
+    background:var(--g);color:#000;border:none;
+    padding:9px 26px;border-radius:7px;font-size:.8rem;font-weight:700;
+    cursor:pointer;font-family:var(--ff-mono);letter-spacing:.08em;
+    transition:background .2s,transform .15s,box-shadow .2s
+  }
+  #openGameBtn:hover{background:#00DFA8;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,200,150,.3)}
+
+  /* ── Fullscreen game overlay ── */
+  #gameOverlay{
+    display:none;position:fixed;inset:0;z-index:9999;
+    background:rgba(4,8,14,.96);
+    backdrop-filter:blur(4px);
+    flex-direction:column;align-items:center;justify-content:center;gap:0
+  }
+  #gameOverlay.open{display:flex}
+  #gameOverlay .gov-header{
+    width:100%;max-width:900px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 20px;
+    background:rgba(0,0,0,.5);border-bottom:1px solid rgba(0,200,150,.15);
+    font-family:var(--ff-mono);font-size:.7rem;color:var(--muted)
+  }
+  #gameOverlay .gov-title{color:var(--g);font-weight:700;letter-spacing:.1em}
+  #closeGameBtn{
+    background:none;border:1px solid rgba(255,255,255,.15);color:var(--muted);
+    padding:4px 14px;border-radius:5px;font-size:.72rem;cursor:pointer;
+    font-family:var(--ff-mono);transition:all .2s
+  }
+  #closeGameBtn:hover{border-color:var(--g);color:var(--g)}
+  #gameOverlay .gov-hud{
+    width:100%;max-width:900px;
+    display:flex;align-items:center;justify-content:space-between;padding:6px 20px;
+    background:rgba(0,0,0,.4);border-bottom:1px solid rgba(0,200,150,.08);
+    font-family:var(--ff-mono);font-size:.72rem
+  }
+  #gameOverlay .gov-hud .gh-score{color:var(--g);font-weight:700;letter-spacing:.06em}
+  #gameOverlay .gov-hud .gh-stage{color:var(--b)}
+  #gameOverlay .gov-hud .gh-lives{color:#F87171;letter-spacing:3px}
+  #gameCanvas{
+    display:block;width:100%;height:100%;
+    image-rendering:pixelated;background:#000;
+    position:absolute;top:0;left:0;
+  }
+  .game-canvas-wrap{
+    position:relative;
+    width:100%;max-width:900px;
+    flex:1;
+    min-height:0;
+    overflow:hidden;
+  }
+  #gameOverlay .gov-keys{
+    width:100%;max-width:900px;
+    padding:7px 20px;
+    background:rgba(0,0,0,.4);border-top:1px solid rgba(0,200,150,.08);
+    font-family:var(--ff-mono);font-size:.62rem;color:var(--muted);
+    display:flex;gap:24px;flex-wrap:wrap
+  }
+  #gameOverlay .gov-keys span{color:var(--text)}
+  /* game over / start screen inside overlay */
+  #gameScreen{
+    position:absolute;inset:0;z-index:2;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:rgba(0,0,0,.85);font-family:var(--ff-mono);color:var(--text)
+  }
+  #gameScreen.hidden{display:none}
+  #gameScreen .gs-title{font-size:1.4rem;font-weight:700;color:var(--g);letter-spacing:.15em}
+  #gameScreen .gs-sub{font-size:.78rem;color:var(--muted);text-align:center;line-height:1.7;max-width:300px}
+  #gameScreen .gs-score{font-size:1rem;color:var(--text);font-weight:700}
+  .gs-btn{
+    background:var(--g);color:#000;border:none;
+    padding:9px 26px;border-radius:6px;font-size:.8rem;font-weight:700;
+    cursor:pointer;font-family:var(--ff-mono);letter-spacing:.08em;
+    transition:background .2s,transform .15s
+  }
+  .gs-btn:hover{background:#00DFA8;transform:translateY(-1px)}
+  .gs-btn-ghost{
+    background:none;border:1px solid rgba(255,255,255,.2);color:var(--muted);
+    padding:8px 22px;border-radius:6px;font-size:.78rem;
+    cursor:pointer;font-family:var(--ff-mono);transition:all .2s
+  }
+  .gs-btn-ghost:hover{border-color:var(--g);color:var(--g)}
+
+  .hero-stats{
+    display:grid;grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--border)
+  }
+  .hstat{
+    padding:16px 18px;
+    border-right:1px solid var(--border)
+  }
+  .hstat:nth-child(2n){border-right:none}
+  .hstat:nth-child(3),.hstat:nth-child(4){border-top:1px solid var(--border)}
+  .hstat-label{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .hstat-val{font-size:.88rem;font-weight:600;color:var(--text)}
+  .hstat-val.g{color:var(--g)}
+
+  @media(max-width:960px){
+    .hero-inner{grid-template-columns:1fr}
+    .hero-panel{display:none}
+  }
+
+  /* ═══════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════ */
+  #about{background:var(--bg2)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .about-body p{font-size:.975rem;color:var(--muted);line-height:1.82;margin-bottom:18px}
+  .about-body p strong{color:var(--text);font-weight:600}
+  .about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .acard{
+    padding:20px;border-radius:var(--r);
+    border:1px solid var(--border);background:var(--bg3);
+    transition:border-color .2s,transform .2s
+  }
+  .acard:hover{border-color:var(--border2);transform:translateY(-2px)}
+  .acard-title{font-size:.9rem;font-weight:700;margin-bottom:5px}
+  .acard-text{font-size:.78rem;color:var(--muted);line-height:1.6}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}.about-cards{grid-template-columns:1fr 1fr}}
+
+  /* ═══════════════════════════════════════
+     SKILLS
+  ═══════════════════════════════════════ */
+  #skills{background:var(--bg)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .scard{
+    padding:26px;border-radius:var(--r2);
+    border:1px solid var(--border);background:var(--bg2);
+    transition:border-color .2s,transform .2s,box-shadow .2s
+  }
+  .scard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,200,150,.08)}
+  .scard-title{font-size:.95rem;font-weight:700;margin-bottom:16px}
+  .scard-items{display:flex;flex-direction:column;gap:8px}
+  .sitem{display:flex;align-items:center;gap:9px;font-size:.82rem;color:var(--muted)}
+  .sitem::before{content:'›';color:var(--g);font-weight:700;font-size:.95rem;flex-shrink:0}
+  .scard-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .stag{
+    font-family:var(--ff-mono);font-size:.65rem;padding:3px 9px;border-radius:4px;
+    background:rgba(0,200,150,.06);color:var(--g);border:1px solid rgba(0,200,150,.15)
+  }
+
+  /* ═══════════════════════════════════════
+     EXPERIENCE
+  ═══════════════════════════════════════ */
+  #experience{background:var(--bg2)}
+  .exp-list{display:flex;flex-direction:column;gap:2px}
+  .exp-item{
+    display:grid;grid-template-columns:148px 1fr;
+    gap:0 36px;position:relative
+  }
+  .exp-item::before{
+    content:'';position:absolute;
+    left:148px;top:32px;bottom:-2px;
+    width:1px;background:var(--border)
+  }
+  .exp-item:last-child::before{display:none}
+
+  .exp-meta{padding:30px 0;text-align:right}
+  .exp-date{font-family:var(--ff-mono);font-size:.68rem;color:var(--muted);line-height:1.6}
+  .exp-badge{
+    display:inline-block;margin-top:7px;
+    font-family:var(--ff-mono);font-size:.62rem;padding:2px 9px;border-radius:4px;
+    background:rgba(0,200,150,.08);color:var(--g);border:1px solid rgba(0,200,150,.2)
+  }
+  .exp-badge.current{background:rgba(0,200,150,.14)}
+
+  .exp-body{
+    padding:30px 0 30px 36px;
+    border-left:2px solid var(--border);position:relative
+  }
+  .exp-body::before{
+    content:'';position:absolute;left:-5px;top:38px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--g);border:2px solid var(--bg2)
+  }
+  .exp-role{font-size:1.05rem;font-weight:700;margin-bottom:3px}
+  .exp-company{font-size:.83rem;color:var(--g);font-weight:500;margin-bottom:4px}
+  .exp-location{font-family:var(--ff-mono);font-size:.66rem;color:var(--muted);margin-bottom:14px}
+  .exp-desc{font-size:.875rem;color:var(--muted);line-height:1.75;margin-bottom:14px}
+  .exp-bullets{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+  .ebullet{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--muted);line-height:1.6}
+  .ebullet::before{content:'—';color:var(--g);flex-shrink:0;margin-top:1px}
+  .exp-tech{display:flex;flex-wrap:wrap;gap:6px}
+  .etag{
+    font-family:var(--ff-mono);font-size:.62rem;padding:2px 8px;border-radius:4px;
+    background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border)
+  }
+
+  @media(max-width:620px){
+    .exp-item{grid-template-columns:1fr}
+    .exp-item::before{left:0;top:100px}
+    .exp-meta{text-align:left;padding:22px 0 0}
+    .exp-body{padding:14px 0 22px 20px;border-left-width:1px}
+  }
+
+  /* ═══════════════════════════════════════
+     PROJECTS
+  ═══════════════════════════════════════ */
+  #projects{background:var(--bg)}
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+  .pcard{
+    border-radius:var(--r2);overflow:hidden;
+    border:1px solid var(--border);background:var(--bg2);
+    display:flex;flex-direction:column;
+    transition:border-color .25s,transform .25s,box-shadow .25s
+  }
+  .pcard:hover{border-color:rgba(0,200,150,.35);transform:translateY(-4px);box-shadow:0 18px 48px rgba(0,0,0,.35)}
+
+  .pcard-header{
+    padding:26px 26px 20px;
+    background:linear-gradient(135deg,rgba(0,200,150,.08) 0%,rgba(0,0,0,0) 60%);
+    border-bottom:1px solid var(--border)
+  }
+  .pcard-type{
+    font-family:var(--ff-mono);font-size:.63rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--b);margin-bottom:8px
+  }
+  .pcard-type.red{color:#F87171}
+  .pcard-type.purple{color:#C084FC}
+  .pcard-title{font-size:1.05rem;font-weight:700;line-height:1.3;margin-bottom:5px}
+  .pcard-sub{font-size:.75rem;color:var(--muted)}
+
+  .pcard-body{padding:22px 26px;flex:1;display:flex;flex-direction:column}
+  .pcard-desc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+  .pcard-pts{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+  .ppt{display:flex;align-items:flex-start;gap:8px;font-size:.79rem;color:var(--muted);line-height:1.55}
+  .ppt::before{content:'›';color:var(--g);font-weight:700;flex-shrink:0}
+  .pcard-outcome{
+    margin-top:auto;margin-bottom:16px;
+    padding:11px 14px;border-radius:8px;
+    background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.12);
+    font-size:.77rem;color:var(--g)
+  }
+  .pcard-outcome strong{display:block;font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px}
+  .pcard-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .ptag{
+    font-family:var(--ff-mono);font-size:.6rem;padding:2px 7px;border-radius:4px;
+    background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border)
+  }
+
+  /* featured card (first) */
+  .pcard.featured{border-color:rgba(0,200,150,.2)}
+  .pcard.featured:hover{border-color:rgba(0,200,150,.35)}
+  .pcard.featured .pcard-header{background:linear-gradient(135deg,rgba(0,200,150,.13) 0%,rgba(59,158,255,.04) 100%)}
+
+
+  /* ═══════════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════════ */
+  #contact{background:var(--bg)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact-intro{font-size:.975rem;color:var(--muted);line-height:1.8;margin-bottom:32px}
+  .contact-intro strong{color:var(--text);font-weight:600}
+  .clinks{display:flex;flex-direction:column;gap:12px}
+  .clink{
+    display:flex;align-items:center;gap:14px;
+    padding:15px 18px;border-radius:var(--r);
+    border:1px solid var(--border);background:var(--bg2);
+    font-size:.875rem;transition:all .2s
+  }
+  .clink:hover{border-color:var(--border2);background:rgba(0,200,150,.04)}
+  .clink-icon{
+    width:38px;height:38px;border-radius:8px;flex-shrink:0;
+    background:rgba(0,200,150,.1);
+    display:flex;align-items:center;justify-content:center;font-size:1rem
+  }
+  .clink-label{font-size:.68rem;color:var(--muted);margin-bottom:2px;font-family:var(--ff-mono)}
+  .clink-val{font-weight:600;font-size:.85rem}
+  .clink-arr{margin-left:auto;color:var(--muted);font-size:.9rem}
+
+  /* form */
+  .contact-form-wrap{
+    padding:32px;border-radius:var(--r2);
+    border:1px solid var(--border);background:var(--bg2)
+  }
+  .contact-form-wrap h3{font-size:1.05rem;font-weight:700;margin-bottom:22px}
+  .fg{margin-bottom:16px}
+  .fg label{display:block;font-size:.75rem;color:var(--muted);margin-bottom:6px;letter-spacing:.03em}
+  .fg input,.fg textarea{
+    width:100%;background:rgba(255,255,255,.03);
+    border:1px solid var(--border);border-radius:8px;
+    padding:11px 14px;color:var(--text);
+    font-family:var(--ff-disp);font-size:.88rem;outline:none;
+    transition:border-color .2s,box-shadow .2s
+  }
+  .fg input:focus,.fg textarea:focus{
+    border-color:var(--g);
+    box-shadow:0 0 0 3px rgba(0,200,150,.1)
+  }
+  .fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
+  .fg textarea{resize:vertical;min-height:118px}
+  .form-btn{
+    width:100%;background:var(--g);color:#080C12;border:none;
+    padding:12px;border-radius:8px;font-size:.9rem;font-weight:700;
+    cursor:pointer;transition:background .2s,transform .2s;
+    font-family:var(--ff-disp)
+  }
+  .form-btn:hover{background:#00DFA8;transform:translateY(-1px)}
+  .form-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .form-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:10px}
+
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+
+  /* ═══════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════ */
+  footer{
+    background:rgba(0,0,0,.4);border-top:1px solid var(--border);
+    padding:26px 0
+  }
+  .footer-inner{
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px
+  }
+  .footer-brand{font-family:var(--ff-mono);font-size:.82rem;color:var(--muted)}
+  .footer-brand span{color:var(--g)}
+  .footer-copy{font-size:.75rem;color:var(--muted)}
+  .footer-links{display:flex;gap:20px}
+  .footer-links a{font-size:.78rem;color:var(--muted);transition:color .2s}
+  .footer-links a:hover{color:var(--text)}
+
+  /* ═══════════════════════════════════════
+     REVEAL
+  ═══════════════════════════════════════ */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal-l{opacity:0;transform:translateX(-20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .reveal-l.in{opacity:1;transform:none}
+  .reveal-r{opacity:0;transform:translateX(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .reveal-r.in{opacity:1;transform:none}
+
+  /* stagger */
+  .stagger-1{transition-delay:.08s}
+  .stagger-2{transition-delay:.16s}
+  .stagger-3{transition-delay:.24s}
+  .stagger-4{transition-delay:.32s}
+
+  /* ═══════════════════════════════════════
+     MISC UTILS
+  ═══════════════════════════════════════ */
+  .mt-center{text-align:center;margin-top:44px}
+  </style>
 </head>
-<body class="antialiased">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#general" class="flex items-center">
-                        <span class="hacker-text text-xl font-bold">AB</span>
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link text-light hover:text-primary relative">About</a>
-                    <a href="#skills" class="nav-link text-light hover:text-primary relative">Skills</a>
-                    <a href="#experience" class="nav-link text-light hover:text-primary relative">Experience</a>
-                    <a href="#education" class="nav-link text-light hover:text-primary relative">Education</a>
-                    <a href="#projects" class="nav-link text-light hover:text-primary relative">Projects</a>
-                    <a href="#contact" class="nav-link text-light hover:text-primary relative">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-light hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">Skills</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">Experience</a>
-                <a href="#education" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">Education</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">Projects</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-light hover:text-primary hover:bg-gray-800">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body>
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo"><span>AB</span><em>.sec</em></div>
+    <div class="nav-links">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#experience" data-i18n="nav_exp">Experience</a>
+      <a href="#projects" data-i18n="nav_proj">Projects</a>
+      <a href="#contact" class="nav-hire" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="langEN" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> EN</button>
+        <button class="lang-btn" id="langFR" onclick="setLang('fr')"><span class="lang-flag">🇫🇷</span> FR</button>
+      </div>
+      <button class="nav-burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="nmobile">
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#experience" data-i18n="nav_exp">Experience</a>
+    <a href="#projects" data-i18n="nav_proj">Projects</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="general" class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-darker to-dark">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold">
-                    <span class="block text-light">Hi, I'm</span>
-                    <span class="hacker-text">Anouar Brimou</span>
-                </h1>
-                <div class="terminal p-6 max-w-lg">
-                    <div class="terminal-header flex items-center space-x-2 pb-3 mb-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    <div class="terminal-body">
-                        <p class="text-light mb-2"><span class="text-primary">$</span> whoami</p>
-                        <p class="text-light mb-4">Cybersecurity Engineer | Offensive Security | Red Team | Pentesting | Top 3% on TryHackMe</p>
-                        <p class="text-light mb-2"><span class="text-primary">$</span> cat about_me.txt</p>
-                        <p class="text-light mb-4">Recently graduated Cybersecurity Engineer with hands-on experience in offensive and defensive security operations through Red Team vs Blue Team simulations. Skilled in penetration testing, secure application development, and incident response.</p>
-                        <p class="text-light mb-2"><span class="text-primary">$</span> <span class="command-line"></span></p>
-                    </div>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-6 py-3 bg-primary text-dark font-medium rounded-md hover:bg-opacity-90 transition duration-300">
-                        Contact Me
-                    </a>
-                    <a href="#projects" class="px-6 py-3 border border-primary text-primary font-medium rounded-md hover:bg-primary hover:bg-opacity-10 transition duration-300">
-                        View Projects
-                    </a>
-                </div>
-            </div>
-            <div class="hidden md:flex justify-center">
-                <div class="relative">
-                    <div class="hexagon w-64 h-72 bg-gradient-to-br from-primary to-secondary flex items-center justify-center glow-box">
-                        <div class="hexagon w-64 h-72 flex items-center justify-center overflow-hidden">
-                            <img src="./pfp.png" alt="Anouar Brimou" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-8 -right-8 bg-dark p-4 rounded-md border border-gray-700 w-48">
-                        <p class="text-xs text-light mb-1">Currently working on:</p>
-                        <p class="text-primary text-sm font-medium">MITRE ATT&CK Framework</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">About Me</span>
-            </h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <p class="text-light leading-relaxed">
-                        I'm a recently graduated Cybersecurity Engineer with hands-on experience in offensive and defensive security operations through Red Team vs Blue Team simulations. I'm passionate about identifying vulnerabilities and securing systems against evolving threats.
-                    </p>
-                    <p class="text-light leading-relaxed">
-                        My expertise spans penetration testing, secure application development, and incident response with MITRE ATT&CK framework implementation. I specialize in both identifying security weaknesses and implementing robust defense mechanisms.
-                    </p>
-                    <p class="text-light leading-relaxed">
-                        With a strong foundation in both technical and operational aspects of cybersecurity, I'm seeking opportunities to further develop my skills in a stimulating professional environment. My goal is to contribute to building more secure digital ecosystems.
-                    </p>
-                    <div class="pt-4">
-                        <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" class="inline-flex items-center text-primary hover:text-secondary">
-                            <span>View my LinkedIn</span>
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                        <div class="text-primary text-3xl mb-3">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light mb-2">Red & Blue Team</h3>
-                        <p class="text-gray-400">Specialized in both offensive security and defensive strategies.</p>
-                    </div>
-                    <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                        <div class="text-primary text-3xl mb-3">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light mb-2">Penetration Testing</h3>
-                        <p class="text-gray-400">Experienced in identifying and mitigating security vulnerabilities.</p>
-                    </div>
-                    <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                        <div class="text-primary text-3xl mb-3">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light mb-2">Secure Development</h3>
-                        <p class="text-gray-400">Building applications with security as a core principle.</p>
-                    </div>
-                    <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                        <div class="text-primary text-3xl mb-3">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light mb-2">Continuous Learning</h3>
-                        <p class="text-gray-400">Always expanding knowledge in the evolving cybersecurity field.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-darker">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Technical Skills</span>
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Systems -->
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 skill-card transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-20 p-2 rounded-md mr-4">
-                            <i class="fas fa-server text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light">Systems</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-center">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                            <span class="text-light">Windows Server</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                            <span class="text-light">Kali Linux</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                            <span class="text-light">Ubuntu</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                            <span class="text-light">VMware</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Cybersecurity & Pentesting -->
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 skill-card transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-20 p-2 rounded-md mr-4">
-                            <i class="fas fa-user-secret text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light">Cybersecurity & Pentesting</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Metasploit</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Nmap</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Burp Suite</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">SQLMap</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Gobuster</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Hydra</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Responder</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">Wazuh</span>
-                        <span class="px-3 py-1 bg-dark rounded-full text-sm border border-primary text-primary">MITRE ATT&CK</span>
-                    </div>
-                </div>
-                
-                <!-- Programming & Development -->
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 skill-card transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary bg-opacity-20 p-2 rounded-md mr-4">
-                            <i class="fas fa-code text-primary text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-light">Programming & Development</h3>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-python text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">Python</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-js text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">JavaScript</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-php text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">PHP</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 80%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-java text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">Java</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 70%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-laravel text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">Laravel</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-dark rounded-full flex items-center justify-center mr-3">
-                                <i class="fab fa-microsoft text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="text-light font-medium">C#/.NET</p>
-                                <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1">
-                                    <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Professional Experience</span>
-            </h2>
-            <div class="relative">
-                <!-- Timeline -->
-                <div class="space-y-8">
-                    <!-- Experience 1 -->
-                    <div class="relative pl-8 timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                                <h3 class="text-xl font-bold text-light">Cybersecurity Intern - Red Team vs Blue Team Simulation</h3>
-                                <span class="text-primary text-sm font-medium">March 2025 - September 2025</span>
-                            </div>
-                            <p class="text-gray-400 mb-3">INEOS Cyberdefense, Casablanca, Morocco</p>
-                            <ul class="list-disc list-inside text-light space-y-2">
-                                <li>Deployed realistic lab environment using VMware with VLANs, DMZ, Active Directory, and FortiGate</li>
-                                <li>Conducted internal and external attack simulations using Kali Linux, Metasploit, Gobuster, and Hydra</li>
-                                <li>Performed privilege escalation on Windows 10 and Server 2019 systems</li>
-                                <li>Executed firewall evasion techniques and lateral movement operations</li>
-                                <li>Implemented Wazuh SIEM and T-Pot Honeypot for threat detection</li>
-                                <li>Analyzed security logs, created custom detection rules, and identified APT activities</li>
-                                <li>Generated comprehensive incident reports using MITRE ATT&CK framework</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience 2 -->
-                    <div class="relative pl-8 timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="bg-darker p-6 rounded-lg border border-gray-800">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                                <h3 class="text-xl font-bold text-light">Secure Application Development Intern</h3>
-                                <span class="text-primary text-sm font-medium">July 2024 - September 2024</span>
-                            </div>
-                            <p class="text-gray-400 mb-3">Terrain 360, Marrakech, Morocco</p>
-                            <ul class="list-disc list-inside text-light space-y-2">
-                                <li>Developed secure applications using Flutter (Dart), Laravel, and Python</li>
-                                <li>Integrated Multi-Factor Authentication (MFA) systems</li>
-                                <li>Conducted automated penetration testing using Metasploit for SQLi, XSS, and brute force attacks</li>
-                                <li>Performed security assessments across Black Box, Grey Box, and White Box testing environments</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-darker">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Education</span>
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Education 1 -->
-                <div class="bg-dark p-6 rounded-lg border border-gray-800">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                        <h3 class="text-xl font-bold text-light">Diplôme d'Ingénieur en Cybersécurité</h3>
-                        <span class="text-primary text-sm font-medium">2020 - Present</span>
-                    </div>
-                    <p class="text-gray-400 mb-3">ISGA (Institut Supérieur d'Ingénierie & des Affaires), Marrakech, Morocco</p>
-                    <p class="text-light">Engineering Degree in Cybersecurity specializing in offensive and defensive cybersecurity, network security, and secure development practices.</p>
-                </div>
-                
-                <!-- Education 2 -->
-                <div class="bg-dark p-6 rounded-lg border border-gray-800">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                        <h3 class="text-xl font-bold text-light">Baccalauréat - Sciences de la Vie et de la Terre</h3>
-                        <span class="text-primary text-sm font-medium">2019 - 2020</span>
-                    </div>
-                    <p class="text-gray-400 mb-3">Jil Al Moustakbal, Beni-Mellal, Morocco</p>
-                    <p class="text-light">High School Diploma in Life and Earth Sciences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Projects & Achievements</span>
-            </h2>
-            
-            <!-- Recent Work Section -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-light mb-8 flex items-center">
-                    <span class="hacker-text mr-3">Recent Work</span>
-                    <span class="text-primary text-sm bg-primary bg-opacity-10 px-3 py-1 rounded-full">Latest Projects</span>
-                </h3>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Red Team Engagement -->
-                    <div class="project-card rounded-lg overflow-hidden border border-gray-800">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Red Team Engagement" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <h3 class="text-xl font-bold text-light">Red Team Engagement</h3>
-                                <span class="text-xs px-2 py-1 bg-red-500 rounded-full">Enterprise Breach Simulation</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-gray-400 mb-4">Simulated a real-world attack on a corporate network to assess security posture.</p>
-                            <div class="mb-4">
-                                <h4 class="text-sm font-bold text-primary mb-2">Key Activities:</h4>
-                                <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
-                                    <li>Conducted reconnaissance and vulnerability scanning</li>
-                                    <li>Deployed custom malware for initial access</li>
-                                    <li>Maintained stealthy persistence with obfuscation</li>
-                                    <li>Exfiltrated simulated sensitive data</li>
-                                </ul>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Nmap</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Metasploit</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">C2 Infrastructure</span>
-                            </div>
-                            <p class="text-xs text-primary font-medium">Outcome: Achieved full domain compromise demonstrating evasion techniques</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Blue Team Operations -->
-                    <div class="project-card rounded-lg overflow-hidden border border-gray-800">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blue Team Operations" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <h3 class="text-xl font-bold text-light">Blue Team Operations</h3>
-                                <span class="text-xs px-2 py-1 bg-blue-500 rounded-full">Threat Detection & Response</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-gray-400 mb-4">Defended against an active Red Team attack in a simulated environment.</p>
-                            <div class="mb-4">
-                                <h4 class="text-sm font-bold text-primary mb-2">Key Activities:</h4>
-                                <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
-                                    <li>Monitored network and host activity</li>
-                                    <li>Detected malware behavior through log correlation</li>
-                                    <li>Conducted forensic analysis</li>
-                                    <li>Hardened endpoints and documented IOCs</li>
-                                </ul>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Wazuh</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Sysmon</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">MITRE ATT&CK</span>
-                            </div>
-                            <p class="text-xs text-primary font-medium">Outcome: Successfully detected and contained the attack</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Two-Stage Malware -->
-                    <div class="project-card rounded-lg overflow-hidden border border-gray-800">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Two-Stage Malware" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <h3 class="text-xl font-bold text-light">Two-Stage Malware</h3>
-                                <span class="text-xs px-2 py-1 bg-purple-500 rounded-full">File Exfiltration</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-gray-400 mb-4">Developed stealthy, multi-stage malware targeting .txt files in AD environment.</p>
-                            <div class="mb-4">
-                                <h4 class="text-sm font-bold text-primary mb-2">Techniques Used:</h4>
-                                <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
-                                    <li>Registry hijacking</li>
-                                    <li>Socket-based exfiltration</li>
-                                    <li>Shared folder abuse</li>
-                                    <li>Process masquerading</li>
-                                </ul>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">PowerShell</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Python</span>
-                                <span class="px-2 py-1 bg-dark rounded-full text-xs text-primary">Active Directory</span>
-                            </div>
-                            <p class="text-xs text-primary font-medium">Outcome: Real-time capture of sensitive data without user awareness</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://github.com/anouarbro" target="_blank" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-md hover:bg-primary hover:bg-opacity-10 transition duration-300">
-                    <i class="fab fa-github mr-2"></i> View All Projects on GitHub
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 bg-darker">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Certifications</span>
-            </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 flex items-center">
-                    <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
-                        <i class="fas fa-certificate text-primary"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-light">Cisco CCNA</h3>
-                        <p class="text-gray-400 text-sm">In Progress</p>
-                    </div>
-                </div>
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 flex items-center">
-                    <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
-                        <i class="fas fa-certificate text-primary"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-light">CPTS</h3>
-                        <p class="text-gray-400 text-sm">HackTheBox Certified Penetration Testing Specialist (In Progress)</p>
-                    </div>
-                </div>
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 flex items-center">
-                    <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
-                        <i class="fas fa-certificate text-primary"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-light">CBBH</h3>
-                        <p class="text-gray-400 text-sm">HackTheBox Certified Bug Bounty Hunter (In Progress)</p>
-                    </div>
-                </div>
-                <div class="bg-dark p-6 rounded-lg border border-gray-800 flex items-center">
-                    <div class="bg-primary bg-opacity-20 p-3 rounded-full mr-4">
-                        <i class="fas fa-certificate text-primary"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-light">Fortinet NSE 4</h3>
-                        <p class="text-gray-400 text-sm">Network Security Expert (In Progress)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span class="hacker-text">Get In Touch</span>
-            </h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold text-light mb-6">Let's talk about cybersecurity</h3>
-                    <p class="text-gray-400 mb-8">
-                        Interested in discussing cybersecurity opportunities, penetration testing projects, or secure development? Feel free to reach out through the form or directly via email.
-                    </p>
-                    
-                    <div class="mt-8">
-                        <h4 class="text-lg font-bold text-light mb-4">Connect with me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" class="social-icon text-2xl text-light hover:text-primary">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/anouarbro" target="_blank" class="social-icon text-2xl text-light hover:text-primary">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.instagram.com/tacxv" target="_blank" class="social-icon text-2xl text-light hover:text-primary">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <form class="space-y-6" id="contact-form">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-light mb-2">Name</label>
-                            <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-md focus:outline-none" placeholder="Your name">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-light mb-2">Email</label>
-                            <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-md focus:outline-none" placeholder="Your email">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-light mb-2">Subject</label>
-                            <input type="text" id="subject" class="contact-input w-full px-4 py-3 rounded-md focus:outline-none" placeholder="Subject">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-light mb-2">Message</label>
-                            <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-md focus:outline-none" placeholder="Your message"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full px-6 py-3 bg-primary text-dark font-medium rounded-md hover:bg-opacity-90 transition duration-300">
-                                Send Message
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-darker border-t border-gray-800">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <a href="#general" class="flex items-center">
-                        <span class="hacker-text text-xl font-bold">AB</span>
-                    </a>
-                </div>
-                <div class="text-sm text-gray-400">
-                    &copy; 2023 Anouar Brimou. All rights reserved.
-                </div>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" class="text-gray-400 hover:text-primary">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/anouarbro" target="_blank" class="text-gray-400 hover:text-primary">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Popup Modal -->
-    <div id="contact-popup" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
-        <div class="bg-dark p-8 rounded-lg border border-primary max-w-md w-full mx-4">
-            <h3 class="text-xl font-bold text-light mb-4">Contact Form Notice</h3>
-            <p class="text-gray-300 mb-6">The contact form is not working right now. Please contact me via LinkedIn or Instagram instead.</p>
-            <div class="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                </a>
-                <a href="https://www.instagram.com/tacxv" target="_blank" class="px-4 py-2 bg-pink-600 text-white rounded-md hover:bg-pink-700 transition">
-                    <i class="fab fa-instagram mr-2"></i> Instagram
-                </a>
-            </div>
-            <button id="close-popup" class="mt-6 w-full py-2 border border-primary text-primary rounded-md hover:bg-primary hover:bg-opacity-10 transition">
-                Close
-            </button>
-        </div>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="inner hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+    
+      <h1 class="hero-name">Anouar<br><span class="g-text">Brimou</span></h1>
+      <p class="hero-title" data-i18n="hero_title">Security Engineer</p>
+      <p class="hero-desc" data-i18n="hero_desc">
+        I design, deploy, and harden <strong>enterprise network security infrastructure</strong> —
+        FortiGate firewall policy, FortiManager mass deployment, SD-WAN Hub-and-Spoke architectures,
+        and Palo Alto migrations. <strong>Production environments. Real clients.</strong>
+      </p>
+      <div class="hero-chips">
+        <span class="chip g">FortiGate</span>
+        <span class="chip g">FortiManager</span>
+        <span class="chip g">SD-WAN</span>
+        <span class="chip g">Palo Alto</span>
+        <span class="chip">IPsec VPN</span>
+        <span class="chip">FortiAnalyzer</span>
+        <span class="chip">Firewall Security</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-g" data-i18n="hero_btn1">View Projects</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero_btn2">Contact Me</a>
+        <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn →</a>
+      </div>
     </div>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-        
-        // Terminal typing effect
-        const commandLine = document.querySelector('.command-line');
-        if (commandLine) {
-            const commands = [
-                'nmap -sV -O -T4 anouar_brimou',
-                'whois anouar_brimou',
-                'searchsploit anouar brimou',
-                'hydra -l anouar -P rockyou.txt ssh://anouar_brimou'
-            ];
-            
-            let currentCommand = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            let isEnd = false;
-            
-            function typeCommand() {
-                const fullCommand = commands[currentCommand];
-                
-                if (isDeleting) {
-                    commandLine.textContent = fullCommand.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    commandLine.textContent = fullCommand.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                if (!isDeleting && charIndex === fullCommand.length) {
-                    isEnd = true;
-                    setTimeout(() => {
-                        isDeleting = true;
-                    }, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    currentCommand = (currentCommand + 1) % commands.length;
-                }
-                
-                const typingSpeed = isDeleting ? 50 : 100;
-                setTimeout(typeCommand, typingSpeed);
+    <!-- RIGHT — Game preview card -->
+    <div class="hero-panel">
+      <div class="hero-panel-header">
+        <span class="dot-r"></span>
+        <span class="dot-y"></span>
+        <span class="dot-g"></span>
+        <span class="panel-title">space-defender.exe</span>
+      </div>
+      <div class="game-preview">
+        <div class="game-preview-art">
+  ▲ ▲ ▲ ▲ ▲ ▲ ▲<br>
+◆◆◆ ◆◆◆ ◆◆◆ ◆◆◆<br>
+  ▼   ▼   ▼   ▼<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;△<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▲█▲</div>
+        <div class="game-preview-title">SPACE DEFENDER</div>
+        <div class="game-preview-sub" data-i18n="game_sub">UFOs inbound. Eliminate them before they reach you.</div>
+        <button id="openGameBtn" data-i18n="game_btn">▶ LAUNCH GAME</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-label">Role</div>
+          <div class="hstat-val">Security Engineer</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-label">Company</div>
+          <div class="hstat-val">INEOS</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-label">Primary Stack</div>
+          <div class="hstat-val g">Fortinet + Palo Alto</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-label">Location</div>
+          <div class="hstat-val">Casablanca, Morocco</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about">
+  <div class="inner">
+    <div class="section-eyebrow" data-i18n="about_eyebrow">About Me</div>
+    <h2 class="section-h" data-i18n="about_h">Engineer. Not just a theorist.</h2>
+    <div class="about-grid">
+      <div class="about-body reveal-l">
+        <p>
+          I'm a <strong>Security Engineer</strong> based in Casablanca, Morocco, working at
+          INEOS on enterprise infrastructure projects for multiple client organizations across Morocco.
+          My work is production — not simulations, not labs.
+        </p>
+        <p>
+          A typical week means configuring <strong>FortiGate firewall policies</strong>, pushing
+          config across dozens of sites through <strong>FortiManager</strong>, tuning
+          <strong>SD-WAN path selection</strong>, debugging IPsec tunnel issues, deploying
+          a Palo Alto in HA, or staging a new branch device for zero-touch rollout. The details
+          matter when you're working on live infrastructure.
+        </p>
+        <p>
+          I also hold a practical background in <strong>penetration testing and offensive
+          security</strong> — Red Team attack simulation, SIEM detection engineering, MITRE ATT&amp;CK
+          mapping. That perspective shapes how I design firewall policy and think about segmentation.
+        </p>
+        <p>
+          Engineering Degree in Cybersecurity from ISGA Marrakech.
+          Actively working toward <strong>Fortinet NSE 4</strong> and <strong>Cisco CCNA</strong>.
+        </p>
+      </div>
+      <div class="about-cards reveal-r">
+        <div class="acard stagger-1">
+          <div class="acard-title">Fortinet Platform</div>
+          <div class="acard-text">Daily administration of FortiGate, FortiManager, FortiAnalyzer, FortiSwitch, and FortiAP in production client environments.</div>
+        </div>
+        <div class="acard stagger-2">
+          <div class="acard-title">SD-WAN &amp; VPN</div>
+          <div class="acard-text">Hub-and-Spoke IPsec VPN architectures across multi-site enterprise environments, with dynamic routing over SD-WAN overlays.</div>
+        </div>
+        <div class="acard stagger-3">
+          <div class="acard-title">Palo Alto Networks</div>
+          <div class="acard-text">Firewall deployment, security policy, HA, VPN, and migration projects from legacy platforms to Palo Alto.</div>
+        </div>
+        <div class="acard stagger-4">
+          <div class="acard-title">Offensive Mindset</div>
+          <div class="acard-text">Penetration testing background informs every firewall policy decision. I know how attackers think.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section id="skills">
+  <div class="inner">
+    <div class="section-eyebrow" data-i18n="skills_eyebrow">Technical Skills</div>
+    <h2 class="section-h" data-i18n="skills_h">What I work with daily.</h2>
+    <p class="section-sub" data-i18n="skills_sub">Every item below reflects hands-on production experience, not theoretical knowledge alone.</p>
+    <div class="skills-grid">
+
+      <div class="scard reveal stagger-1">
+        <div class="scard-title">Fortinet Platform</div>
+        <div class="scard-items">
+          <div class="sitem">FortiGate — firewall policy, NAT, VPN, HA</div>
+          <div class="sitem">FortiManager — central mgmt, mass deploy</div>
+          <div class="sitem">FortiAnalyzer — logging &amp; analytics</div>
+          <div class="sitem">FortiSwitch — enterprise switching</div>
+          <div class="sitem">FortiAP — wireless infrastructure</div>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-2">
+        <div class="scard-title">SD-WAN &amp; VPN</div>
+        <div class="scard-items">
+          <div class="sitem">SD-WAN architecture design</div>
+          <div class="sitem">Hub-and-Spoke IPsec VPN overlays</div>
+          <div class="sitem">SSL VPN configuration</div>
+          <div class="sitem">Dynamic routing over VPN tunnels</div>
+          <div class="sitem">Multi-site WAN design</div>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-3">
+        <div class="scard-title">Palo Alto Networks</div>
+        <div class="scard-items">
+          <div class="sitem">Firewall deployment &amp; policy</div>
+          <div class="sitem">NAT, routing, VPN</div>
+          <div class="sitem">High Availability (HA)</div>
+          <div class="sitem">Security profiles &amp; threat prevention</div>
+          <div class="sitem">Platform migrations</div>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-4">
+        <div class="scard-title">Offensive Security</div>
+        <div class="scard-items">
+          <div class="sitem">Penetration testing (internal/external)</div>
+          <div class="sitem">Privilege escalation &amp; lateral movement</div>
+          <div class="sitem">Active Directory attacks</div>
+          <div class="sitem">Red Team methodologies</div>
+          <div class="sitem">Vulnerability assessment</div>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-1">
+        <div class="scard-title">Security Operations</div>
+        <div class="scard-items">
+          <div class="sitem">Wazuh SIEM — rules &amp; correlation</div>
+          <div class="sitem">MITRE ATT&amp;CK framework</div>
+          <div class="sitem">Incident response &amp; reporting</div>
+          <div class="sitem">Infrastructure hardening</div>
+          <div class="sitem">Threat detection &amp; forensics</div>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-2">
+        <div class="scard-title">Systems &amp; Scripting</div>
+        <div class="scard-tags">
+          <span class="stag">Python</span>
+          <span class="stag">PowerShell</span>
+          <span class="stag">Bash</span>
+          <span class="stag">Linux</span>
+          <span class="stag">Windows Server</span>
+          <span class="stag">Active Directory</span>
+          <span class="stag">VMware</span>
+          <span class="stag">Kali Linux</span>
+          <span class="stag">Git</span>
+        </div>
+      </div>
+
+      <div class="scard reveal stagger-3">
+        <div class="scard-title">Security Tools</div>
+        <div class="scard-tags">
+          <span class="stag">Metasploit</span>
+          <span class="stag">Nmap</span>
+          <span class="stag">Burp Suite</span>
+          <span class="stag">SQLMap</span>
+          <span class="stag">Gobuster</span>
+          <span class="stag">Hydra</span>
+          <span class="stag">Responder</span>
+          <span class="stag">T-Pot</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<section id="experience">
+  <div class="inner">
+    <div class="section-eyebrow" data-i18n="exp_eyebrow">Experience</div>
+    <h2 class="section-h" data-i18n="exp_h">Where I've worked.</h2>
+    <p class="section-sub" data-i18n="exp_sub">Production environments, real clients, real consequences.</p>
+
+    <div class="exp-list">
+
+      <!-- CURRENT ROLE -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-date">Aug 2025<br>Present</div>
+          <div class="exp-badge current">Current</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Security Engineer</div>
+          <div class="exp-company">INEOS</div>
+          <div class="exp-location">Full-time · Casablanca, Morocco</div>
+          <div class="exp-desc">
+            Design, deploy, and secure enterprise network infrastructure for multiple client
+            organizations across Morocco. End-to-end delivery of firewall and SD-WAN projects on
+            Fortinet and Palo Alto platforms.
+          </div>
+          <div class="exp-bullets">
+            <div class="ebullet">Deploy and configure FortiGate firewalls — policy design, NAT, routing, and security hardening for enterprise and agency sites</div>
+            <div class="ebullet">Administer FortiManager for centralized policy management, mass deployment, device staging, and automation workflows</div>
+            <div class="ebullet">Design and implement SD-WAN architectures with Hub-and-Spoke IPsec VPN overlays across distributed multi-site environments</div>
+            <div class="ebullet">Deploy FortiSwitch and FortiAP for enterprise switching and wireless infrastructure</div>
+            <div class="ebullet">Deploy Palo Alto firewalls — security policy, NAT, VPN, HA configuration, and platform migration projects</div>
+            <div class="ebullet">Perform firewall upgrades, HA testing, security hardening reviews, and production troubleshooting</div>
+          </div>
+          <div class="exp-tech">
+            <span class="etag">FortiGate</span>
+            <span class="etag">FortiManager</span>
+            <span class="etag">FortiAnalyzer</span>
+            <span class="etag">SD-WAN</span>
+            <span class="etag">IPsec VPN</span>
+            <span class="etag">Palo Alto</span>
+            <span class="etag">FortiSwitch</span>
+            <span class="etag">FortiAP</span>
+            <span class="etag">HA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERNSHIP 1 -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-date">Mar 2025<br>Sep 2025</div>
+          <div class="exp-badge">Internship</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Cybersecurity Engineer — Red Team vs Blue Team</div>
+          <div class="exp-company">INEOS Cyberdefense</div>
+          <div class="exp-location">Final Year Internship · Casablanca, Morocco</div>
+          <div class="exp-desc">
+            Designed and executed a complete enterprise attack-and-defense simulation covering
+            offensive Red Team operations and Blue Team detection, response, and hardening.
+          </div>
+          <div class="exp-bullets">
+            <div class="ebullet">Built a production-grade lab — FortiGate, VLANs, DMZ, Active Directory — simulating a real enterprise network topology</div>
+            <div class="ebullet">Executed multi-stage attack chains: exploitation, privilege escalation on Windows 10/Server 2019, lateral movement, firewall evasion, data exfiltration</div>
+            <div class="ebullet">Deployed Wazuh SIEM and T-Pot Honeypot; wrote custom detection rules and identified APT-pattern activity in logs</div>
+            <div class="ebullet">Documented findings using MITRE ATT&amp;CK — attack chains, detection gaps, and remediation recommendations</div>
+          </div>
+          <div class="exp-tech">
+            <span class="etag">Kali Linux</span>
+            <span class="etag">Metasploit</span>
+            <span class="etag">Nmap</span>
+            <span class="etag">Wazuh</span>
+            <span class="etag">T-Pot</span>
+            <span class="etag">MITRE ATT&amp;CK</span>
+            <span class="etag">Active Directory</span>
+            <span class="etag">FortiGate</span>
+            <span class="etag">VMware</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERNSHIP 2 -->
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-date">Jul 2024<br>Sep 2024</div>
+          <div class="exp-badge">Internship</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-role">Software Developer &amp; Security Intern</div>
+          <div class="exp-company">Terrain 360</div>
+          <div class="exp-location">Internship · Marrakech, Morocco</div>
+          <div class="exp-bullets">
+            <div class="ebullet">Developed secure applications using Flutter, Laravel, and Python with MFA integration</div>
+            <div class="ebullet">Conducted penetration testing — Black Box, Grey Box, and White Box environments — SQLi, XSS, brute force</div>
+            <div class="ebullet">Delivered security assessment findings and remediation guidance to the development team</div>
+          </div>
+          <div class="exp-tech">
+            <span class="etag">Flutter</span>
+            <span class="etag">Laravel</span>
+            <span class="etag">Python</span>
+            <span class="etag">Metasploit</span>
+            <span class="etag">Penetration Testing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section id="projects">
+  <div class="inner">
+    <div class="section-eyebrow" data-i18n="proj_eyebrow">Projects</div>
+    <h2 class="section-h" data-i18n="proj_h">What I've built and secured.</h2>
+    <p class="section-sub" data-i18n="proj_sub">Selected projects from production deployments and security research.</p>
+
+    <div class="proj-grid">
+
+      <!-- PROJECT 1: Hotel chain -->
+      <div class="pcard featured reveal stagger-1">
+        <div class="pcard-header">
+          <div class="pcard-type">SD-WAN · Fortinet · Multi-site</div>
+          <div class="pcard-title">SD-WAN Deployment — Morocco's Largest Hotel Group</div>
+          <div class="pcard-sub">Hub-and-Spoke architecture across all hotel properties</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">End-to-end design and deployment of a Hub-and-Spoke SD-WAN architecture for the largest hotel chain in Morocco, connecting all properties to a centralized hub with full firewall enforcement and centralized visibility at every site.</p>
+          <div class="pcard-pts">
+            <div class="ppt">FortiGate deployed at every hotel site — firewall policy, NAT, routing, and security hardening per property</div>
+            <div class="ppt">Hub-and-Spoke IPsec VPN overlays with dynamic routing for resilient inter-site connectivity</div>
+            <div class="ppt">FortiManager used for centralized policy management, device staging, and mass deployment</div>
+            <div class="ppt">FortiAnalyzer integrated for centralized log collection, security reporting, and traffic visibility across all properties</div>
+          </div>
+          <div class="pcard-outcome">
+            <strong>Outcome</strong>
+            All hotel properties connected under a unified SD-WAN policy framework with centralized monitoring through FortiAnalyzer
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">FortiGate</span>
+            <span class="ptag">FortiManager</span>
+            <span class="ptag">FortiAnalyzer</span>
+            <span class="ptag">SD-WAN</span>
+            <span class="ptag">Hub-and-Spoke</span>
+            <span class="ptag">IPsec VPN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Dairy company -->
+      <div class="pcard featured reveal stagger-2">
+        <div class="pcard-header">
+          <div class="pcard-type">SD-WAN · Fortinet · Enterprise</div>
+          <div class="pcard-title">SD-WAN Deployment — Major Moroccan Dairy Group</div>
+          <div class="pcard-sub">Multi-site WAN modernization for a national food &amp; dairy company</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Full SD-WAN architecture design and large-scale deployment for one of Morocco's leading dairy and food companies — multi-site rollout across production, distribution, and administrative locations with enterprise wireless and a custom guest captive portal.</p>
+          <div class="pcard-pts">
+            <div class="ppt">FortiGate deployed and hardened at every site — firewall policy, NAT, routing, and security zoning per location</div>
+            <div class="ppt">SD-WAN with IPsec VPN overlays ensuring failover and resilient connectivity across all sites</div>
+            <div class="ppt">FortiManager mass deployment workflow — all devices staged centrally and pushed to site with zero on-site engineer required</div>
+            <div class="ppt">FortiAP wireless deployed at each location with separate corporate and guest SSID profiles</div>
+            <div class="ppt">Custom captive portal built for guest Wi-Fi — branded landing page with visitor registration form and email-based admin notification workflow</div>
+            <div class="ppt">FortiAnalyzer integrated for centralized log collection, security analytics, and reporting across the entire network</div>
+          </div>
+          <div class="pcard-outcome">
+            <strong>Outcome</strong>
+            Full multi-site rollout completed via mass deployment — all sites live with enterprise wireless, guest captive portal, and centralized visibility through FortiAnalyzer
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">FortiGate</span>
+            <span class="ptag">FortiManager</span>
+            <span class="ptag">FortiAnalyzer</span>
+            <span class="ptag">FortiAP</span>
+            <span class="ptag">SD-WAN</span>
+            <span class="ptag">IPsec VPN</span>
+            <span class="ptag">Captive Portal</span>
+            <span class="ptag">Mass Deployment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palo Alto Migration -->
+      <div class="pcard reveal stagger-3">
+        <div class="pcard-header">
+          <div class="pcard-type">Security · Palo Alto · Migration</div>
+          <div class="pcard-title">Enterprise Firewall Migration to Palo Alto</div>
+          <div class="pcard-sub">Legacy platform replacement — full production cutover</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Migration of enterprise client from legacy firewall platform to Palo Alto Networks — full planning, configuration, testing, and zero-downtime production cutover.</p>
+          <div class="pcard-pts">
+            <div class="ppt">Security policy mapping and gap analysis from legacy configuration</div>
+            <div class="ppt">Full NAT, routing, VPN, and HA configuration on Palo Alto</div>
+            <div class="ppt">Security profile and threat prevention policy tuning</div>
+            <div class="ppt">Parallel testing environment and staged cutover planning</div>
+            <div class="ppt">Post-migration validation and performance baseline</div>
+          </div>
+          <div class="pcard-outcome">
+            <strong>Outcome</strong>
+            Successful migration with improved application-layer visibility and security posture
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">Palo Alto Networks</span>
+            <span class="ptag">Security Policy</span>
+            <span class="ptag">NAT</span>
+            <span class="ptag">VPN</span>
+            <span class="ptag">High Availability</span>
+            <span class="ptag">Migration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red vs Blue -->
+      <div class="pcard reveal stagger-4">
+        <div class="pcard-header">
+          <div class="pcard-type red">Red Team · Blue Team · SIEM</div>
+          <div class="pcard-title">Enterprise Attack &amp; Defense Simulation</div>
+          <div class="pcard-sub">Full red team engagement + blue team detection response</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Designed and executed a complete enterprise attack-and-defense exercise in a production-grade lab simulating a real corporate network topology.</p>
+          <div class="pcard-pts">
+            <div class="ppt">Red Team: exploitation, privilege escalation, lateral movement, and data exfiltration across Active Directory</div>
+            <div class="ppt">Blue Team: Wazuh SIEM with custom detection rules, T-Pot honeypot, log correlation and analysis</div>
+            <div class="ppt">MITRE ATT&amp;CK-mapped documentation of full attack chain and detection gaps</div>
+            <div class="ppt">Comprehensive remediation report delivered to technical and management audiences</div>
+          </div>
+          <div class="pcard-outcome">
+            <strong>Outcome</strong>
+            Full domain compromise (red phase) — successful detection and containment (blue phase)
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">Metasploit</span>
+            <span class="ptag">Wazuh</span>
+            <span class="ptag">MITRE ATT&amp;CK</span>
+            <span class="ptag">Active Directory</span>
+            <span class="ptag">Kali Linux</span>
+            <span class="ptag">FortiGate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Malware research -->
+      <div class="pcard reveal stagger-1">
+        <div class="pcard-header">
+          <div class="pcard-type purple">Malware Research · Active Directory</div>
+          <div class="pcard-title">Multi-Stage File Exfiltration Malware</div>
+          <div class="pcard-sub">Stealth persistence and exfiltration in AD environments</div>
+        </div>
+        <div class="pcard-body">
+          <p class="pcard-desc">Research project developing a two-stage malware sample to study stealth persistence and file exfiltration techniques in Active Directory environments.</p>
+          <div class="pcard-pts">
+            <div class="ppt">Registry hijacking for stealthy persistence across reboots</div>
+            <div class="ppt">Socket-based file exfiltration targeting document files</div>
+            <div class="ppt">Process masquerading and shared folder abuse techniques</div>
+            <div class="ppt">Findings used to improve Wazuh detection rules for AD-based threats</div>
+          </div>
+          <div class="pcard-outcome">
+            <strong>Outcome</strong>
+            Research findings improved Blue Team detection capabilities for AD exfiltration patterns
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">PowerShell</span>
+            <span class="ptag">Active Directory</span>
+            <span class="ptag">Wazuh</span>
+            <span class="ptag">MITRE ATT&amp;CK</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-center">
+      <a href="https://github.com/anouarbro" target="_blank" rel="noopener" class="btn btn-ghost">
+        View GitHub →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section id="contact">
+  <div class="inner">
+    <div class="section-eyebrow" data-i18n="contact_eyebrow">Contact</div>
+    <h2 class="section-h" data-i18n="contact_h">Let's talk.</h2>
+    <div class="contact-grid">
+
+      <div class="reveal-l">
+        <p class="contact-intro" data-i18n="contact_intro">
+          I work on <strong>enterprise firewall and SD-WAN projects</strong> — Fortinet and Palo Alto
+          deployments, security hardening, and infrastructure migrations.
+          Based in Casablanca, Morocco. Reach me for project enquiries or professional contact.
+        </p>
+        <div class="clinks">
+          <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" rel="noopener" class="clink">
+            <div class="clink-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="clink-label">LinkedIn</div>
+              <div class="clink-val">linkedin.com/in/anouarbrimou</div>
+            </div>
+            <span class="clink-arr">→</span>
+          </a>
+          <a href="mailto:anouar.brimou@ineos.ma" class="clink">
+            <div class="clink-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <div class="clink-label">Email</div>
+              <div class="clink-val">anouar.brimou@ineos.ma</div>
+            </div>
+            <span class="clink-arr">→</span>
+          </a>
+          <a href="https://github.com/anouarbro" target="_blank" rel="noopener" class="clink">
+            <div class="clink-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </div>
+            <div>
+              <div class="clink-label">GitHub</div>
+              <div class="clink-val">github.com/anouarbro</div>
+            </div>
+            <span class="clink-arr">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal-r">
+        <h3 data-i18n="contact_form_h">Send a message</h3>
+        <!-- 
+          SETUP: go to formspree.io, create free account, create a new form,
+          replace YOUR_FORM_ID below with your actual form ID (e.g. xaybzrjk)
+        -->
+        <form id="cform" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="fg">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" data-i18n-ph="form_name" required/>
+          </div>
+          <div class="fg">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="your@email.com" data-i18n-ph="form_email" required/>
+          </div>
+          <div class="fg">
+            <label for="cf-subj">Subject</label>
+            <input type="text" id="cf-subj" name="subject" placeholder="Role inquiry / Project / Other" data-i18n-ph="form_subj"/>
+          </div>
+          <div class="fg">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell me about the opportunity or project..." data-i18n-ph="form_msg" required></textarea>
+          </div>
+          <button type="submit" class="form-btn" id="fbtn" data-i18n="form_send">Send Message</button>
+          <p class="form-note" id="fnote">Or reach me directly via LinkedIn — I respond within 24 hours.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="inner footer-inner">
+    <div class="footer-brand"><span>AB</span>.sec — Anouar Brimou</div>
+    <div class="footer-copy" data-i18n="footer_copy">© 2026 Anouar Brimou. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/anouarbrimou/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/anouarbro" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ GAME OVERLAY ═══════════════ -->
+<div id="gameOverlay">
+  <div class="gov-header">
+    <span class="gov-title">SPACE DEFENDER</span>
+    <button id="closeGameBtn">✕ CLOSE</button>
+  </div>
+  <div class="gov-hud">
+    <span class="gh-score">SCORE <span id="govScore">00000</span></span>
+    <span class="gh-stage">STAGE <span id="govStage">1</span></span>
+    <span class="gh-lives" id="govLives">♥ ♥ ♥</span>
+  </div>
+  <div class="game-canvas-wrap">
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameScreen">
+      <div class="gs-title" id="gsTitle">SPACE DEFENDER</div>
+      <div class="gs-sub" id="gsSub">Defend your network. UFOs loop endlessly — only your lives matter.<br>Shoot them down before they reach you.</div>
+      <div class="gs-score" id="gsScore" style="display:none"></div>
+      <button class="gs-btn" id="gsPlayBtn">▶ START GAME</button>
+      <button class="gs-btn-ghost" id="gsCloseBtn" style="display:none">✕ Close</button>
+    </div>
+  </div>
+  <div class="gov-keys">
+    <span>← → <span>Move</span></span>
+    <span>SPACE <span>Shoot</span></span>
+    <span>↑ <span>also shoots</span></span>
+    <span>Touch: <span>drag to move, tap to shoot</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script>
+/* ── NAV ── */
+const burger  = document.getElementById('burger');
+const nmobile = document.getElementById('nmobile');
+burger.addEventListener('click',()=>{
+  burger.classList.toggle('open');
+  nmobile.classList.toggle('open');
+});
+nmobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');
+  nmobile.classList.remove('open');
+}));
+
+/* ── SCROLL REVEAL ── */
+const revEls = document.querySelectorAll('.reveal,.reveal-l,.reveal-r');
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});
+},{threshold:0.1});
+revEls.forEach(el=>revObs.observe(el));
+
+/* ── CONTACT FORM ── */
+const cform = document.getElementById('cform');
+const fbtn  = document.getElementById('fbtn');
+const fnote = document.getElementById('fnote');
+cform.addEventListener('submit',async e=>{
+  e.preventDefault();
+  fbtn.textContent='Sending…';fbtn.disabled=true;
+  try{
+    const res=await fetch(cform.action,{method:'POST',body:new FormData(cform),headers:{Accept:'application/json'}});
+    if(res.ok){
+      fbtn.textContent='Sent ✓';
+      cform.reset();
+      fnote.textContent="Got it — I'll be in touch within 24 hours.";
+      fnote.style.color='#00C896';
+    }else throw new Error();
+  }catch{
+    fbtn.textContent='Send Message';fbtn.disabled=false;
+    fnote.textContent='Form unavailable — please reach me on LinkedIn directly.';
+    fnote.style.color='#F87171';
+  }
+});
+
+/* ══════════════════════════════════════════════
+   SPACE DEFENDER — UFO Edition
+══════════════════════════════════════════════ */
+(function(){
+  /* DOM */
+  var overlay    = document.getElementById('gameOverlay');
+  var openBtn    = document.getElementById('openGameBtn');
+  var closeBtn   = document.getElementById('closeGameBtn');
+  var canvas     = document.getElementById('gameCanvas');
+  var govScore   = document.getElementById('govScore');
+  var govStage   = document.getElementById('govStage');
+  var govLives   = document.getElementById('govLives');
+  var gameScreen = document.getElementById('gameScreen');
+  var gsTitle    = document.getElementById('gsTitle');
+  var gsSub      = document.getElementById('gsSub');
+  var gsScore    = document.getElementById('gsScore');
+  var gsPlayBtn  = document.getElementById('gsPlayBtn');
+  var gsCloseBtn = document.getElementById('gsCloseBtn');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  /* colours */
+  var G='#00C896', BG='#000010';
+  var pGlow='rgba(0,200,150,', bGlow='rgba(0,255,168,';
+
+  /* state */
+  var W, H, raf, running=false;
+  var score, lives, stage, fc; /* fc = frameCount */
+  var player, bullets, ufos, particles, stars;
+  var keys={}, shootCD=0, fireTimer=0;
+  var lastTouchX=null;
+
+  /* ── resize ── */
+  function resize(){
+    var hdr  = document.querySelector('#gameOverlay .gov-header');
+    var hud  = document.querySelector('#gameOverlay .gov-hud');
+    var kbar = document.querySelector('#gameOverlay .gov-keys');
+    var used = (hdr?hdr.offsetHeight:38)+(hud?hud.offsetHeight:30)+(kbar?kbar.offsetHeight:30);
+    W = canvas.width  = Math.min(window.innerWidth, 900);
+    H = canvas.height = Math.max(window.innerHeight - used, 300);
+  }
+
+  /* ── stars ── */
+  function makeStars(){
+    stars=[];
+    for(var i=0;i<90;i++) stars.push({
+      x:Math.random()*W, y:Math.random()*H,
+      r:Math.random()*1.3+.3,
+      spd:Math.random()*.3+.07,
+      a:Math.random()*.7+.3
+    });
+  }
+
+  /* ── spawn one UFO with fully random properties ── */
+  function spawnUFO(){
+    var sz  = 14 + Math.random()*10;           /* size 14–24 */
+    var spd = 0.6 + Math.random()*0.9 + stage*0.12; /* fall speed */
+    return {
+      x    : sz + Math.random()*(W - sz*2),    /* random x across width */
+      y    : -sz - Math.random()*200,           /* starts off-screen top, random depth */
+      vy   : spd,
+      vx   : (Math.random()-0.5)*0.8,          /* slight random horizontal drift */
+      wAmp : 10 + Math.random()*25,            /* wobble amplitude */
+      wFreq: 0.015 + Math.random()*0.035,      /* wobble frequency */
+      wOff : Math.random()*Math.PI*2,          /* wobble phase offset */
+      sz   : sz,
+      hp   : stage>=4 ? 2 : 1,
+      pts  : Math.round(sz),                   /* bigger = more points */
+      flash: 0                                 /* hit flash timer */
+    };
+  }
+
+  /* ── draw one UFO ── */
+  function drawUFO(u){
+    var x=u.x, y=u.y, s=u.sz;
+    /* pick red shade — slightly random per ufo size for variety */
+    var red = u.flash>0 ? '#FFFFFF' : (s>20?'#FF2222':s>17?'#FF4444':'#FF6666');
+
+    /* outer glow */
+    var g = ctx.createRadialGradient(x,y,0,x,y,s*1.3);
+    g.addColorStop(0,'rgba(255,50,50,0.25)');
+    g.addColorStop(1,'rgba(255,50,50,0)');
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.arc(x,y,s*1.3,0,Math.PI*2); ctx.fill();
+
+    /* main saucer body */
+    ctx.fillStyle=red;
+    ctx.beginPath(); ctx.ellipse(x,y,s,s*0.38,0,0,Math.PI*2); ctx.fill();
+
+    /* dome on top */
+    ctx.fillStyle= u.flash>0 ? 'rgba(255,255,255,0.8)' : 'rgba(255,100,100,0.6)';
+    ctx.beginPath(); ctx.ellipse(x,y-s*0.12,s*0.52,s*0.28,0,0,Math.PI*2); ctx.fill();
+
+    /* underside stripe */
+    ctx.fillStyle='rgba(0,0,0,0.35)';
+    ctx.beginPath(); ctx.ellipse(x,y+s*0.1,s*0.7,s*0.12,0,0,Math.PI*2); ctx.fill();
+
+    /* pulsing lights under the saucer */
+    var numLights=4, lr=s*0.09;
+    for(var i=0;i<numLights;i++){
+      var angle = (i/numLights)*Math.PI*2 + fc*0.08;
+      var lx=x+Math.cos(angle)*s*0.52, ly=y+s*0.18;
+      /* alternate warm/bright */
+      ctx.fillStyle = i%2===0
+        ? 'rgba(255,220,80,'+(0.5+0.5*Math.sin(fc*0.12+i))+')'
+        : 'rgba(255,80,80,'+(0.5+0.5*Math.sin(fc*0.12+i+2))+')';
+      ctx.beginPath(); ctx.arc(lx,ly,lr,0,Math.PI*2); ctx.fill();
+    }
+  }
+
+  /* ── draw player ── */
+  function drawPlayer(){
+    var x=player.x, y=player.y, s=player.size;
+    var g=ctx.createRadialGradient(x,y+s*.55,0,x,y+s*.55,s*.9);
+    g.addColorStop(0,pGlow+'0.55)'); g.addColorStop(1,pGlow+'0)');
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.arc(x,y+s*.55,s*.9,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle=G;
+    ctx.beginPath();
+    ctx.moveTo(x,y-s); ctx.lineTo(x+s*.45,y+s*.65);
+    ctx.lineTo(x,y+s*.3); ctx.lineTo(x-s*.45,y+s*.65);
+    ctx.closePath(); ctx.fill();
+    ctx.fillStyle='#081018';
+    ctx.beginPath(); ctx.ellipse(x,y-s*.05,s*.17,s*.27,0,0,Math.PI*2); ctx.fill();
+    if(fc%4<2){
+      ctx.fillStyle='#FFB347';
+      ctx.beginPath();
+      ctx.moveTo(x-s*.2,y+s*.65); ctx.lineTo(x+s*.2,y+s*.65);
+      ctx.lineTo(x,y+s*(1.05+Math.random()*.45));
+      ctx.closePath(); ctx.fill();
+    }
+  }
+
+  /* ── HUD ── */
+  function updateHUD(){
+    govScore.textContent=String(score).padStart(5,'0');
+    govStage.textContent=stage;
+    var h='', e='';
+    for(var i=0;i<Math.max(0,lives);i++) h+='♥ ';
+    for(var i=0;i<Math.max(0,3-lives);i++) e+='♡ ';
+    govLives.textContent=(h+e).trim();
+  }
+
+  /* ── explosion ── */
+  function explode(x,y,n){
+    for(var i=0;i<n;i++){
+      var a=Math.random()*Math.PI*2, sp=1+Math.random()*4;
+      particles.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,
+        life:1, r:1.5+Math.random()*2.5,
+        col:'#FF'+(Math.floor(Math.random()*3)*2<1?'44':'66')+'44'});
+    }
+  }
+
+  /* ── init ── */
+  function init(){
+    resize(); makeStars();
+    score=0; lives=3; stage=1; fc=0;
+    player={x:W/2, y:H-40, size:15, speed:3.5};
+    bullets=[]; particles=[];
+    /* spawn initial UFOs — count grows with stage */
+    ufos=[];
+    var count = 5 + stage*2;
+    for(var i=0;i<count;i++) ufos.push(spawnUFO());
+    fireTimer=60;
+    updateHUD();
+  }
+
+  function startGame(){
+    gameScreen.classList.add('hidden');
+    resize();
+    init();
+    running=true;
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(loop);
+  }
+
+  /* ── UFO fire ── */
+  function ufoFire(){
+    /* pick a random visible UFO to shoot */
+    var visible=ufos.filter(function(u){return u.y>0&&u.y<H*0.8;});
+    if(!visible.length) return;
+    var u=visible[Math.floor(Math.random()*visible.length)];
+    bullets.push({x:u.x, y:u.y+u.sz*0.4, vx:(Math.random()-0.5)*1.5, vy:2.5+stage*.3, enemy:true, r:3});
+  }
+
+  /* ── update ── */
+  function update(){
+    fc++;
+    shootCD=Math.max(0,shootCD-1);
+
+    /* player movement */
+    if(keys['ArrowLeft']||keys['a']||keys['A'])
+      player.x=Math.max(player.size, player.x-player.speed);
+    if(keys['ArrowRight']||keys['d']||keys['D'])
+      player.x=Math.min(W-player.size, player.x+player.speed);
+    if((keys[' ']||keys['ArrowUp'])&&shootCD===0){
+      bullets.push({x:player.x, y:player.y-player.size, vx:0, vy:-8, enemy:false, r:2.5});
+      shootCD=18;
+    }
+
+    /* UFO movement — each moves independently */
+    ufos.forEach(function(u){
+      /* fall down */
+      u.y += u.vy;
+      /* random horizontal wobble — unique per UFO */
+      u.x += Math.sin(fc*u.wFreq + u.wOff)*u.wAmp*0.04 + u.vx;
+      /* bounce off side walls */
+      if(u.x<u.sz){ u.x=u.sz; u.vx=Math.abs(u.vx)+0.1; }
+      if(u.x>W-u.sz){ u.x=W-u.sz; u.vx=-(Math.abs(u.vx)+0.1); }
+      /* hit flash decay */
+      if(u.flash>0) u.flash--;
+      /* reached bottom — wrap back to top with new random properties */
+      if(u.y > H+u.sz){
+        u.x    = u.sz + Math.random()*(W-u.sz*2);
+        u.y    = -u.sz - Math.random()*180;
+        u.vy   = 0.6 + Math.random()*0.9 + stage*0.12;
+        u.vx   = (Math.random()-0.5)*0.8;
+        u.wAmp = 10+Math.random()*25;
+        u.wFreq= 0.015+Math.random()*0.035;
+        u.wOff = Math.random()*Math.PI*2;
+        /* no lives lost — they just loop back */
+      }
+    });
+
+    /* maintain UFO count as stage increases */
+    var targetCount = 5 + stage*2;
+    while(ufos.length < targetCount) ufos.push(spawnUFO());
+
+    /* fire timer */
+    fireTimer--;
+    var interval=Math.max(50, 120-stage*8-Math.floor(score/100)*3);
+    if(fireTimer<=0){ ufoFire(); fireTimer=interval; }
+
+    /* bullets */
+    bullets=bullets.filter(function(b){
+      b.x+=b.vx; b.y+=b.vy;
+      if(b.y<-15||b.y>H+15) return false;
+
+      if(!b.enemy){
+        /* player bullet hits UFO */
+        for(var i=0;i<ufos.length;i++){
+          var u=ufos[i];
+          var dx=b.x-u.x, dy=b.y-u.y;
+          if(dx*dx+dy*dy < (u.sz+b.r)*(u.sz+b.r)){
+            u.hp--;
+            u.flash=6;
+            if(u.hp<=0){
+              explode(u.x,u.y,10);
+              score+=u.pts; updateHUD();
+              /* respawn this UFO from the top */
+              u.x    = u.sz+Math.random()*(W-u.sz*2);
+              u.y    = -u.sz-Math.random()*150;
+              u.vy   = 0.6+Math.random()*0.9+stage*0.12;
+              u.vx   = (Math.random()-0.5)*0.8;
+              u.wAmp = 10+Math.random()*25;
+              u.wFreq= 0.015+Math.random()*0.035;
+              u.wOff = Math.random()*Math.PI*2;
+              u.sz   = 14+Math.random()*10;
+              u.hp   = stage>=4?2:1;
+              u.pts  = Math.round(u.sz);
+              u.flash= 0;
+              /* score milestone — increase stage */
+              if(score>0 && score % 100 === 0){
+                stage=Math.min(stage+1,8);
+                govStage.textContent=stage;
+              }
             }
-            
-            setTimeout(typeCommand, 1000);
+            return false;
+          }
         }
-        
-        // Contact form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show the popup
-            document.getElementById('contact-popup').classList.remove('hidden');
-            
-            // Reset form
-            this.reset();
-        });
+      } else {
+        /* enemy bullet hits player */
+        var dx=b.x-player.x, dy=b.y-player.y;
+        if(dx*dx+dy*dy < (player.size*0.85)*(player.size*0.85)){
+          lives--;
+          explode(player.x,player.y,14);
+          updateHUD();
+          if(lives<=0){ endGame(); return false; }
+          player.x=W/2;
+          return false;
+        }
+      }
+      return true;
+    });
 
-        // Close popup handler
-        document.getElementById('close-popup').addEventListener('click', function() {
-            document.getElementById('contact-popup').classList.add('hidden');
-        });
+    /* stars drift downward */
+    stars.forEach(function(s){ s.y+=s.spd; if(s.y>H) s.y=0; });
 
-        // Add animation to elements when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        document.querySelectorAll('.skill-card, .project-card, .timeline-item').forEach(el => {
-            observer.observe(el);
-            el.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-        });
-        
-        // Animation for elements when they come into view
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.skill-card, .project-card, .timeline-item');
-            
-            animatedElements.forEach(el => {
-                el.classList.add('opacity-0', 'transition-opacity', 'duration-500');
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.remove('opacity-0');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.1
-                });
-                
-                observer.observe(el);
-            });
-        });
-    </script>
+    /* particles decay */
+    particles=particles.filter(function(p){
+      p.x+=p.vx; p.y+=p.vy; p.vy+=.08; p.life-=.035; return p.life>0;
+    });
+  }
+
+  /* ── draw ── */
+  function draw(){
+    ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
+
+    /* stars */
+    stars.forEach(function(s){
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,'+s.a+')';
+      ctx.fill();
+    });
+
+    /* UFOs */
+    ufos.forEach(function(u){ if(u.y>-u.sz*2) drawUFO(u); });
+
+    /* bullets */
+    bullets.forEach(function(b){
+      if(!b.enemy){
+        var g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r*3.5);
+        g.addColorStop(0,bGlow+'0.9)'); g.addColorStop(1,bGlow+'0)');
+        ctx.fillStyle=g;
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r*3.5,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='#00DFA8';
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
+      } else {
+        var rg=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r*4);
+        rg.addColorStop(0,'rgba(255,60,60,0.85)'); rg.addColorStop(1,'rgba(255,60,60,0)');
+        ctx.fillStyle=rg;
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r*4,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='#FF3333';
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
+      }
+    });
+
+    /* player */
+    drawPlayer();
+
+    /* particles */
+    particles.forEach(function(p){
+      ctx.globalAlpha=p.life;
+      ctx.fillStyle=p.col;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      ctx.globalAlpha=1;
+    });
+
+    /* player base line */
+    ctx.strokeStyle='rgba(0,200,150,0.14)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(0,H-22); ctx.lineTo(W,H-22); ctx.stroke();
+  }
+
+  /* ── loop ── */
+  function loop(){
+    if(!running) return;
+    update(); draw();
+    raf=requestAnimationFrame(loop);
+  }
+
+  /* ── end game (only from losing all lives) ── */
+  function endGame(){
+    running=false;
+    cancelAnimationFrame(raf);
+    gsTitle.textContent='GAME OVER';
+    gsSub.textContent = score>=500?'Firewall secured. Impressive.':score>=200?'Good instincts, engineer.':'The UFOs breached the firewall. Train harder.';
+    gsScore.textContent='Score: '+String(score).padStart(5,'0')+'  —  Stage '+stage;
+    gsScore.style.display='block';
+    gsPlayBtn.textContent='\u25b6 PLAY AGAIN';
+    gsCloseBtn.style.display='inline-block';
+    gameScreen.classList.remove('hidden');
+  }
+
+  /* ── open / close ── */
+  function openOverlay(){
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+    gsTitle.textContent='SPACE DEFENDER';
+    gsSub.textContent='Shoot the UFOs before they get you. They loop back — only your lives matter.';
+    gsScore.style.display='none';
+    gsPlayBtn.textContent='\u25b6 START GAME';
+    gsCloseBtn.style.display='none';
+    gameScreen.classList.remove('hidden');
+    running=false; cancelAnimationFrame(raf);
+    setTimeout(function(){
+      resize(); makeStars();
+      ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
+      for(var i=0;i<stars.length;i++){
+        var s=stars[i];
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,255,255,'+s.a+')';
+        ctx.fill();
+      }
+    },20);
+  }
+
+  function closeOverlay(){
+    running=false; cancelAnimationFrame(raf);
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  /* ── events ── */
+  openBtn.addEventListener('click',   openOverlay);
+  closeBtn.addEventListener('click',  closeOverlay);
+  gsPlayBtn.addEventListener('click', startGame);
+  gsCloseBtn.addEventListener('click',closeOverlay);
+
+  document.addEventListener('keydown',function(e){
+    if(!overlay.classList.contains('open')) return;
+    keys[e.key]=true;
+    if(e.key===' '||e.key==='ArrowUp') e.preventDefault();
+    if(e.key==='Escape') closeOverlay();
+  });
+  document.addEventListener('keyup',function(e){ keys[e.key]=false; });
+
+  canvas.addEventListener('touchstart',function(e){
+    e.preventDefault();
+    lastTouchX=e.touches[0].clientX;
+    if(running&&shootCD===0){
+      bullets.push({x:player.x,y:player.y-player.size,vx:0,vy:-8,enemy:false,r:2.5});
+      shootCD=18;
+    }
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    e.preventDefault();
+    if(!running) return;
+    var dx=e.touches[0].clientX-(lastTouchX||e.touches[0].clientX);
+    player.x=Math.max(player.size,Math.min(W-player.size,player.x+dx*1.5));
+    lastTouchX=e.touches[0].clientX;
+  },{passive:false});
+
+  window.addEventListener('resize',function(){ if(running) resize(); });
+})();
+
+
+/* ══════════════════════════════════════════════
+   LANGUAGE SWITCHER — EN / FR
+══════════════════════════════════════════════ */
+var LANG = {
+  en: {
+    nav_about:"About", nav_skills:"Skills", nav_exp:"Experience",
+    nav_proj:"Projects", nav_contact:"Contact",
+    hero_title:"Security Engineer",
+    hero_desc:"I design, deploy, and harden <strong>enterprise network security infrastructure</strong> — FortiGate firewall policy, FortiManager mass deployment, SD-WAN Hub-and-Spoke architectures, and Palo Alto migrations. <strong>Production environments. Real clients.</strong>",
+    hero_btn1:"View Projects", hero_btn2:"Contact Me",
+    about_eyebrow:"About Me",
+    about_h:"Engineer. Not just a theorist.",
+    skills_eyebrow:"Technical Skills",
+    skills_h:"What I work with daily.",
+    skills_sub:"Every item below reflects hands-on production experience, not theoretical knowledge alone.",
+    exp_eyebrow:"Experience",
+    exp_h:"Where I've worked.",
+    exp_sub:"Production environments, real clients, real consequences.",
+    proj_eyebrow:"Projects",
+    proj_h:"What I've built and secured.",
+    proj_sub:"Selected projects from production deployments and security research.",
+    contact_eyebrow:"Contact",
+    contact_h:"Let's talk.",
+    contact_intro:"I work on <strong>enterprise firewall and SD-WAN projects</strong> — Fortinet and Palo Alto deployments, security hardening, and infrastructure migrations. Based in Casablanca, Morocco. Reach me for project enquiries or professional contact.",
+    contact_form_h:"Send a message",
+    form_name:"Your name", form_email:"your@email.com",
+    form_subj:"Role inquiry / Project / Other",
+    form_msg:"Tell me about the opportunity or project...",
+    form_send:"Send Message",
+    footer_copy:"© 2026 Anouar Brimou. All rights reserved.",
+    game_sub:"UFOs inbound. Eliminate them before they reach you.",
+    game_btn:"▶ LAUNCH GAME"
+  },
+  fr: {
+    nav_about:"À propos", nav_skills:"Compétences", nav_exp:"Expérience",
+    nav_proj:"Projets", nav_contact:"Contact",
+    hero_title:"Ingénieur Sécurité Réseau",
+    hero_desc:"Je conçois, déploie et sécurise des <strong>infrastructures réseau d'entreprise</strong> — politiques de pare-feu FortiGate, déploiement massif FortiManager, architectures SD-WAN Hub-and-Spoke, et migrations Palo Alto. <strong>Environnements de production. Clients réels.</strong>",
+    hero_btn1:"Voir les projets", hero_btn2:"Me contacter",
+    about_eyebrow:"À propos",
+    about_h:"Ingénieur. Pas seulement théoricien.",
+    skills_eyebrow:"Compétences techniques",
+    skills_h:"Ce que j'utilise au quotidien.",
+    skills_sub:"Chaque élément reflète une expérience en production, pas uniquement théorique.",
+    exp_eyebrow:"Expérience",
+    exp_h:"Où j'ai travaillé.",
+    exp_sub:"Environnements de production, clients réels, enjeux réels.",
+    proj_eyebrow:"Projets",
+    proj_h:"Ce que j'ai construit et sécurisé.",
+    proj_sub:"Projets sélectionnés issus de déploiements en production et de recherches en sécurité.",
+    contact_eyebrow:"Contact",
+    contact_h:"Parlons-en.",
+    contact_intro:"Je travaille sur des <strong>projets de pare-feu et SD-WAN d'entreprise</strong> — déploiements Fortinet et Palo Alto, durcissement de sécurité et migrations d'infrastructure. Basé à Casablanca, Maroc. Contactez-moi pour toute demande professionnelle ou de projet.",
+    contact_form_h:"Envoyer un message",
+    form_name:"Votre nom", form_email:"votre@email.com",
+    form_subj:"Demande de poste / Projet / Autre",
+    form_msg:"Parlez-moi de l'opportunité ou du projet...",
+    form_send:"Envoyer",
+    footer_copy:"© 2026 Anouar Brimou. Tous droits réservés.",
+    game_sub:"OVNIs en approche. Éliminez-les avant qu'ils ne vous atteignent.",
+    game_btn:"▶ LANCER LE JEU"
+  }
+};
+
+var currentLang = 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  var d = LANG[lang];
+
+  /* toggle active state on buttons */
+  document.getElementById('langEN').classList.toggle('active', lang==='en');
+  document.getElementById('langFR').classList.toggle('active', lang==='fr');
+
+  /* translate all tagged elements */
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(d[key] !== undefined) el.innerHTML = d[key];
+  });
+
+  /* translate placeholders */
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var key = el.getAttribute('data-i18n-ph');
+    if(d[key] !== undefined) el.placeholder = d[key];
+  });
+
+  /* update game overlay screens if they exist */
+  var gSub = document.getElementById('gsSub');
+  if(gSub && gSub.textContent.indexOf('GAME OVER')===-1){
+    /* only update if not on game over screen */
+  }
+
+  /* store preference */
+  try{ localStorage.setItem('lang', lang); }catch(e){}
+}
+
+/* restore saved language preference on load */
+try{
+  var saved = localStorage.getItem('lang');
+  if(saved==='fr') setLang('fr');
+}catch(e){}
+</script>
+
 </body>
 </html>
